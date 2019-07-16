@@ -14,8 +14,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kmstore.slowfood.entities.Category;
 import com.kmstore.slowfood.entities.Department;
+import com.kmstore.slowfood.entities.Product;
 import com.kmstore.slowfood.repositories.CategoryRepository;
 import com.kmstore.slowfood.repositories.DepartmentRepository;
+import com.kmstore.slowfood.repositories.ProductRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -31,8 +33,12 @@ public class JpaEntityMappingsTest {
 	@Autowired
 	private CategoryRepository categoryRepo;
 	
+	@Autowired
+	private ProductRepository productRepo;
+
 	Department testDepartment;
 	Category testCategory;
+	Product testProduct;
 	
 	@Before
 	public void setup() {
@@ -40,6 +46,8 @@ public class JpaEntityMappingsTest {
 		departmentRepo.save(testDepartment);
 		testCategory = new Category("Category Name", testDepartment);
 		categoryRepo.save(testCategory);
+		testProduct = new Product("Product Name", testCategory);
+		productRepo.save(testProduct);
 		flushAndClearEntityManager();
 	}
 	
@@ -55,7 +63,11 @@ public class JpaEntityMappingsTest {
 		assertThat(retrievedCategory, is(testCategory));
 	}
 	
-	
+	@Test
+	public void shouldSaveAndLoadAProduct() {
+		Product retrievedProduct = productRepo.findById(testProduct.getId()).get();
+		assertThat(retrievedProduct, is(testProduct));
+	}
 
 	private void flushAndClearEntityManager() {
 		entityManager.flush();

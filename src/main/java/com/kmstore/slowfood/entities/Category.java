@@ -1,9 +1,13 @@
 package com.kmstore.slowfood.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -18,6 +22,9 @@ public class Category {
 	@ManyToOne
 	private Department department;
 	
+	@OneToMany
+	private Set<Product> products = new HashSet<Product>();
+	
 	public Category(String name, Department department) {
 		this.name = name;
 		this.department = department;
@@ -30,6 +37,20 @@ public class Category {
 
 	public Long getId() {
 		return id;
+	}
+	
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
 	}
 
 	@Override

@@ -1,47 +1,44 @@
 package com.kmstore.slowfood.entities;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Department {
+public class Product {
+	
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
+
 	private String name;
+
+	@ManyToOne
+	private Category category;
 	
-	@OneToMany
-	private Set<Category> categories = new HashSet<Category>();
-
-	public Department(String name) {
-
+	public Product(String name, Category category) {
 		this.name = name;
-
+		this.category = category;
 	}
 	
 	@SuppressWarnings("unused")
-	private Department() {
+	private Product() {
 		
 	}
 
 	public Long getId() {
 		return id;
 	}
-	
 
 	public String getName() {
 		return name;
 	}
 
-	public Set<Category> getCategories() {
-		return categories;
+	public Category getCategory() {
+		return category;
 	}
 
 	@Override
@@ -60,7 +57,7 @@ public class Department {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Department other = (Department) obj;
+		Product other = (Product) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
