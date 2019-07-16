@@ -6,28 +6,32 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Department {
+public class Category {
+	
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
 	private String name;
+
+	@ManyToOne
+	private Department department;
 	
 	@OneToMany
-	private Set<Category> categories = new HashSet<Category>();
-
-	public Department(String name) {
-
+	private Set<Product> products = new HashSet<Product>();
+	
+	public Category(String name, Department department) {
 		this.name = name;
-
+		this.department = department;
 	}
 	
 	@SuppressWarnings("unused")
-	private Department() {
+	private Category() {
 		
 	}
 
@@ -35,13 +39,18 @@ public class Department {
 		return id;
 	}
 	
+	
 
 	public String getName() {
 		return name;
 	}
 
-	public Set<Category> getCategories() {
-		return categories;
+	public Department getDepartment() {
+		return department;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
 	}
 
 	@Override
@@ -60,7 +69,7 @@ public class Department {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Department other = (Department) obj;
+		Category other = (Category) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -70,5 +79,4 @@ public class Department {
 	}
 	
 	
-
 }
