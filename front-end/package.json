@@ -1,0 +1,29 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "store app front end html and js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "test": "jest /src/js --colors --coverage --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-laine/slow-food.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-laine/slow-food/issues"
+  },
+  "homepage": "https://github.com/matthew-laine/slow-food#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  }
+}
