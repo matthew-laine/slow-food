@@ -69,9 +69,17 @@ describe("addClass", () => {
 
 describe("addChild", () => {
 
-    describe("should add child to element", () => {
+    test("should add child to element", () => {
         const underTest = Html().create('div');
-        underTest.addChild('div');
-        expect(underTest.render().children.contains(HTMLDivElement));
+        const childToAdd = Html().create('a');
+        underTest.addChild(childToAdd);
+        expect(underTest.render().querySelector('a')).toEqual(childToAdd.render());
     });
+
+    test('should throw error when adding a unknown element');
+        const underTest = Html().create('div');
+        const childToAdd = document.create('applesauce')
+        expect(() => {
+            underTest.addChild(childToAdd)
+        }).toThrow("Cannot append invalid HTML Element to parent")
 });

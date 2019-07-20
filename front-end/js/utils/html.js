@@ -23,6 +23,11 @@ export default function () {
         return this;
     }
 
+    addChild(childToAdd){
+        this.element.append(childToAdd.render());
+        return this;
+    }
+
     render() {
         return this.element;
     }
