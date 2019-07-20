@@ -14,8 +14,11 @@ describe("create", () => {
         });
 
         test("Passing null element should throw error", () => {
-            expect(Html().create().toThrow("Must Pass Valid Html Element"));
-        })
+            expect(() => {
+                Html().create();
+            }).toThrow('Must Pass Valid Html Element');
+
+        });
 
     });
 
