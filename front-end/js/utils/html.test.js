@@ -28,14 +28,21 @@ describe("create", () => {
     });
 });
 
-describe("addClass", () => {
-
-    describe("should add class to element", () => {
-
-        test("should add class test to element", () => {
-            const underTest = Html().create('div');
-            underTest.addClass('test');
-            expect(underTest.classList.contains('test')).toBeTruthy();
-        })
+describe("render", () =>{
+    test('newDiv able to call canBeCalled in Html class', () =>{
+        const newDiv = Html().create('div')
+        expect(newDiv.render().canBeCalled()).toBeTruthy();
     })
 })
+
+// describe("addClass", () => {
+
+//     describe("should add class to element", () => {
+
+//         test("should add class test to element", () => {
+//             const underTest = Html().create('div');
+//             underTest.addClass('test');
+//             expect(underTest.classList.contains('test')).toBeTruthy();
+//         })
+//     })
+// })

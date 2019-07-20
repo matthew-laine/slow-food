@@ -12,5 +12,17 @@ export default function () {
           throw new Error('Must Pass Valid Html Element');
         }
         return newElement;
-      }
+    }
+
+    addClass(classToAdd){
+        return this.classList.add(classToAdd);   
+    }
+
+    render() {
+        return this.element;
+    }
+
+    canBeCalled(){
+        return true;
+    }
   }
