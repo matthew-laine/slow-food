@@ -28,6 +28,13 @@ export default function () {
         return this;
     }
 
+    replace(replacementChild){
+        this.innerHTML = '';
+        this.addChild(replacementChild);
+
+        return this;
+    }
+
     render() {
         return this.element;
     }

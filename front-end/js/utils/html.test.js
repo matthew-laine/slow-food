@@ -69,11 +69,26 @@ describe("addChild", () => {
 
 describe("replace", () => {
   test("should replace inner html element", () => {
-      const underTest = Html().create('div');
-      const firstChildToAdd = Html().create('div');
-      const childToReplace = Html().create('p');
+      const underTest = Html().create("div");
+      const firstChildToAdd = Html().create("div");
+      const childToReplace = Html().create("p");
       underTest.addChild(firstChildToAdd);
       underTest.replace(childToReplace);
-      expect(underTest.render().querySelector("a")).toEqual(childToReplace.render());
+      expect(underTest.render().querySelector("p")).toEqual(childToReplace.render());
   });
 });
+
+describe("rmChildrenByClass", () =>{
+    test("should remove only child elements with classlist containing remove", () =>{
+        const underTest = Html().create("div");
+        const firstChildToAdd = Html().create("div").addClass("remove");
+        const secondChildToAdd = Html().create("div").addClass("keep");
+        underTest.addChild(firstChildToAdd);
+        underTest.addChild(secondChildToAdd);
+        underTest.rmChildrenByClass('remove')
+        console.log(underTest.render().querySelector("div"))
+        expect(underTest.render().querySelector("div")).toEqual(secondChildToAdd);
+
+    })
+
+})
