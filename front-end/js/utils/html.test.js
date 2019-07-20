@@ -83,12 +83,13 @@ describe("rmChildrenByClass", () =>{
         const underTest = Html().create("div");
         const firstChildToAdd = Html().create("div").addClass("remove");
         const secondChildToAdd = Html().create("div").addClass("keep");
+        const thirdChildToAdd = Html().create("div").addClass("remove");
         underTest.addChild(firstChildToAdd);
         underTest.addChild(secondChildToAdd);
+        underTest.addChild(thirdChildToAdd);
         underTest.rmChildrenByClass('remove')
         console.log(underTest.render().querySelector("div"))
-        expect(underTest.render().querySelector("div")).toEqual(secondChildToAdd);
-
+        expect(underTest.render().querySelector("div")).toEqual(secondChildToAdd.render());
     })
 
 })

@@ -3,6 +3,20 @@ export default function () {
   }
 
   class Html{
+    
+    addChild(childToAdd){
+      this.element.append(childToAdd.render());
+      return this;
+    }
+    
+    addClass(classToAdd){
+      if(this.element.classList.contains(classToAdd)) {
+        throw new Error("Class already exists on element.");
+      }
+      this.element.classList.add(classToAdd);
+      return this;
+    }
+    
     create(elementType){
         if(!elementType){
           throw new Error('Must Pass Valid Html Element');
@@ -14,28 +28,25 @@ export default function () {
         this.element = newElement;
         return this;
     }
-
-    addClass(classToAdd){
-        if(this.element.classList.contains(classToAdd)) {
-          throw new Error("Class already exists on element.");
-        }
-        this.element.classList.add(classToAdd);
-        return this;
-    }
-
-    addChild(childToAdd){
-        this.element.append(childToAdd.render());
-        return this;
-    }
-
+    
     replace(replacementChild){
-        this.innerHTML = '';
-        this.addChild(replacementChild);
-
-        return this;
+      this.innerHTML = '';
+      this.addChild(replacementChild);
+      
+      return this;
+    }
+    
+    render() {
+      return this.element;
     }
 
-    render() {
-        return this.element;
+    rmChildrenByClass(className){
+
+      let childrenWithClassName = this.element.getElementsByClassName(className);
+      while(childrenWithClassName.length>0){
+        this.element.removeChild(childrenWithClassName[0]);
+        childrenWithClassName = this.element.getElementsByClassName(className);
+      }
+
     }
   }

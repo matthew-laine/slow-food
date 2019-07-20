@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1563639396966" clover="3.2.0">
-  <project timestamp="1563639396966" name="All files">
-    <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6" elements="30" coveredelements="30" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
-    <file name="html.js" path="C:\Users\kchen\OneDrive\Documents\WCCI\code\slow-food\front-end\js\utils\html.js">
-      <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
-      <line num="2" count="16" type="stmt"/>
-      <line num="7" count="16" type="cond" truecount="2" falsecount="0"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="10" count="15" type="stmt"/>
-      <line num="11" count="15" type="cond" truecount="2" falsecount="0"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="14" count="14" type="stmt"/>
-      <line num="15" count="14" type="stmt"/>
-      <line num="19" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="22" count="4" type="stmt"/>
-      <line num="23" count="4" type="stmt"/>
-      <line num="27" count="5" type="stmt"/>
-      <line num="28" count="5" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
+<coverage generated="1563640851740" clover="3.2.0">
+  <project timestamp="1563640851740" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7" elements="35" coveredelements="35" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="html.js" path="/Users/newblord007/wcci/code/slow-food/front-end/js/utils/html.js">
+      <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <line num="2" count="17" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="16" count="5" type="stmt"/>
+      <line num="17" count="5" type="stmt"/>
+      <line num="21" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="16" type="stmt"/>
+      <line num="25" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="28" count="15" type="stmt"/>
+      <line num="29" count="15" type="stmt"/>
       <line num="33" count="1" type="stmt"/>
-      <line num="35" count="1" type="stmt"/>
-      <line num="39" count="12" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="40" count="16" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
