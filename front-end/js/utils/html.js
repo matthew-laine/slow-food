@@ -3,7 +3,10 @@ export default function () {
   }
 
   class Html{
-      create(elementType){
+    create(elementType){
+        if(!elementType){
+            throw new Error('Must Pass Valid Html Element');
+        }
         const newElement = document.createElement(elementType);
         return newElement;
       }

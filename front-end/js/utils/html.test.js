@@ -19,6 +19,12 @@ describe("create", () => {
             }).toThrow('Must Pass Valid Html Element');
 
         });
+        
+        test("Passing lolnotreal element shoudl throw error", () => {
+            expect(() => {
+                Html.create('lolnotreal');
+            }).toThrow('Must Pass Valid Html Element');
+        });
 
     });
 
