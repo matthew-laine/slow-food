@@ -16,14 +16,11 @@ export default function () {
     }
 
     addClass(classToAdd){
-        return this.classList.add(classToAdd);   
+        this.element.classList.add(classToAdd);
+        return this;
     }
 
     render() {
         return this.element;
-    }
-
-    canBeCalled(){
-        return true;
     }
   }

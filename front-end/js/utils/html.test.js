@@ -47,14 +47,22 @@ describe("create", () => {
 
 
 
-// describe("addClass", () => {
+describe("addClass", () => {
 
-//     describe("should add class to element", () => {
+    describe("should add class to element", () => {
 
-//         test("should add class test to element", () => {
-//             const underTest = Html().create('div');
-//             underTest.addClass('test');
-//             expect(underTest.classList.contains('test')).toBeTruthy();
-//         })
-//     })
-// })
+        test("should add class test to element", () => {
+            const underTest = Html().create('div');
+            underTest.addClass('test');
+            expect(underTest.render().classList.contains('test')).toBeTruthy();
+        });
+        
+        test("should throw an error when adding an existing class to div element", ()=>{
+            const underTest = Html().create('div')
+            underTest.addClass('test');
+            expect(() => {
+                underTest.addClass('test');
+            }).toThrow("Class already exists on element.");
+        })
+    })
+})
