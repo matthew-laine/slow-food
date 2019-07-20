@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1563632594817" clover="3.2.0">
-  <project timestamp="1563632594817" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="9" coveredelements="9" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
-    <file name="html.js" path="C:\Users\kchen\OneDrive\Documents\WCCI\code\slow-food\front-end\js\utils\html.js">
-      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="2" count="3" type="stmt"/>
-      <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
+<coverage generated="1563633563037" clover="3.2.0">
+  <project timestamp="1563633563037" name="All files">
+    <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2" elements="13" coveredelements="13" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1"/>
+    <file name="html.js" path="/Users/newblord007/wcci/code/slow-food/front-end/js/utils/html.js">
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="2" count="5" type="stmt"/>
+      <line num="7" count="5" type="cond" truecount="2" falsecount="0"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="10" count="2" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>

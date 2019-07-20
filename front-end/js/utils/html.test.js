@@ -9,7 +9,7 @@ describe("create", () => {
         });
 
         test("Html containing p element should be an object", () =>{
-            const newPElement = Html().create('p')
+            const newPElement = Html().create('p');
             expect(newPElement).toBeInstanceOf(HTMLParagraphElement);
         });
 
@@ -22,10 +22,20 @@ describe("create", () => {
         
         test("Passing lolnotreal element shoudl throw error", () => {
             expect(() => {
-                Html.create('lolnotreal');
+                Html().create('lolnotreal');
             }).toThrow('Must Pass Valid Html Element');
         });
-
     });
-
 });
+
+describe("addClass", () => {
+
+    describe("should add class to element", () => {
+
+        test("should add class test to element", () => {
+            const underTest = Html().create('div');
+            underTest.addClass('test');
+            expect(underTest.classList.contains('test')).toBeTruthy();
+        })
+    })
+})

@@ -5,9 +5,12 @@ export default function () {
   class Html{
     create(elementType){
         if(!elementType){
-            throw new Error('Must Pass Valid Html Element');
+          throw new Error('Must Pass Valid Html Element');
         }
         const newElement = document.createElement(elementType);
+        if(newElement instanceof HTMLUnknownElement) {
+          throw new Error('Must Pass Valid Html Element');
+        }
         return newElement;
       }
   }
