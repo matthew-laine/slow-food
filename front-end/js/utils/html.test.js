@@ -71,8 +71,9 @@ describe("replace", () => {
   test("should replace inner html element", () => {
       const underTest = Html().create('div');
       const firstChildToAdd = Html().create('div');
+      const childToReplace = Html().create('p');
       underTest.addChild(firstChildToAdd);
-      underTest.replace(secondChildToAdd);
-      expect(underTest.render().querySelector("a")).toEqual(secondChildToAdd.render());
+      underTest.replace(childToReplace);
+      expect(underTest.render().querySelector("a")).toEqual(childToReplace.render());
   });
 });
