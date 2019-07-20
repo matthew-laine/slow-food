@@ -58,11 +58,20 @@ describe("addClass", () => {
         });
         
         test("should throw an error when adding an existing class to div element", ()=>{
-            const underTest = Html().create('div')
+            const underTest = Html().create('div');
             underTest.addClass('test');
             expect(() => {
                 underTest.addClass('test');
             }).toThrow("Class already exists on element.");
-        })
-    })
-})
+        });
+    });
+});
+
+describe("addChild", () => {
+
+    describe("should add child to element", () => {
+        const underTest = Html().create('div');
+        underTest.addChild('div');
+        expect(underTest.render().children.contains(HTMLDivElement));
+    });
+});

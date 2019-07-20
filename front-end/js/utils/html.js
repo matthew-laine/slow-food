@@ -16,6 +16,9 @@ export default function () {
     }
 
     addClass(classToAdd){
+        if(this.element.classList.contains(classToAdd)) {
+          throw new Error("Class already exists on element.");
+        }
         this.element.classList.add(classToAdd);
         return this;
     }
