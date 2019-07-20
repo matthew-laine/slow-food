@@ -11,7 +11,8 @@ export default function () {
         if(newElement instanceof HTMLUnknownElement) {
           throw new Error('Must Pass Valid Html Element');
         }
-        return newElement;
+        this.element = newElement;
+        return this;
     }
 
     addClass(classToAdd){
