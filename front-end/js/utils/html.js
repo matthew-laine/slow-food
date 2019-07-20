@@ -3,8 +3,8 @@ export default function () {
   }
 
   class Html{
-      create(){
-        const newDiv = document.createElement('div');
-        return newDiv;
+      create(elementType){
+        const newElement = document.createElement(elementType);
+        return newElement;
       }
   }

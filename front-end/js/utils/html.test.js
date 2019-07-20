@@ -10,9 +10,12 @@ describe("create", () => {
 
         test("Html containing p element should be an object", () =>{
             const newPElement = Html().create('p')
-            console.log(newPElement)
             expect(newPElement).toBeInstanceOf(HTMLParagraphElement);
         });
+
+        test("Passing null element should throw error", () => {
+            expect(Html().create().toThrow("Must Pass Valid Html Element"));
+        })
 
     });
 
