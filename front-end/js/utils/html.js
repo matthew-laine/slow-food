@@ -47,6 +47,6 @@ export default function () {
         this.element.removeChild(childrenWithClassName[0]);
         childrenWithClassName = this.element.getElementsByClassName(className);
       }
-
+      return this;
     }
   }
