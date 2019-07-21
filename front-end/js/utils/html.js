@@ -30,7 +30,7 @@ export default function () {
     }
     
     replace(replacementChild){
-      this.innerHTML = '';
+      this.element.innerHTML = '';
       this.addChild(replacementChild);
       
       return this;

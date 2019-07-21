@@ -75,6 +75,7 @@ describe("replace", () => {
       underTest.addChild(firstChildToAdd);
       underTest.replace(childToReplace);
       expect(underTest.render().querySelector("p")).toEqual(childToReplace.render());
+      expect(underTest.render().querySelectorAll('div').length).toEqual(0);
   });
 });
 
