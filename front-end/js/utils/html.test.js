@@ -110,8 +110,10 @@ describe("addAttribute", () => {
 });
 
 describe("rmClass", () => {
-  const underTest = Html().create("a");
-  underTest.addClass("foo");
-  underTest.rmClass("foo");
-  expect(underTest.render().classList.contains("foo")).toBeFalsey();
-})
+  test("should remove class foo", () => {
+    const underTest = Html().create("a");
+    underTest.addClass("foo");
+    underTest.rmClass("foo");
+    expect(underTest.render().classList.contains("foo")).toBeFalsey();
+  });
+});
