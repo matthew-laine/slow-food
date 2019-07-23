@@ -123,11 +123,3 @@ describe("rmClass", () => {
     expect(underTestWithoutBar).toEqual(underTest);
   });
 });
-
-describe("addClickEvent", () => {
-  test("button should return 'hello world' on click", () => {
-    const underTest = Html().create("button");
-    underTest.addClickEvent(underTest.addClass("button"));
-    expect(underTest.classList.contains("button"))
-  })
-})
