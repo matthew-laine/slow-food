@@ -106,5 +106,12 @@ describe("addAttribute", () => {
     underTest.addAttribute("href", "http://www.google.com");
     underTest.addAttribute("href", "http://www.notgoogle.com");
     expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
-  })
+  });
 });
+
+describe("rmClass", () => {
+  const underTest = Html().create("a");
+  underTest.addClass("foo");
+  underTest.rmClass("foo");
+  expect(underTest.render().classList.contains("foo")).toBeFalsey();
+})

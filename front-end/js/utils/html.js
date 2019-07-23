@@ -51,7 +51,9 @@ export default function () {
     }
 
     addAttribute(attributeType, attributeName){
-      this.element.setAttribute(attributeType, attributeName);
+      if (!this.element.getAttribute(attributeType)) {
+        this.element.setAttribute(attributeType, attributeName);
+      }
       return this;
     }
   }
