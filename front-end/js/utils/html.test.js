@@ -91,6 +91,13 @@ describe("rmChildrenByClass", () =>{
         underTest.rmChildrenByClass('remove')
         console.log(underTest.render().querySelector("div"))
         expect(underTest.render().querySelector("div")).toEqual(secondChildToAdd.render());
-    })
+    });
+});
 
-})
+describe("addAttribute", () => {
+  test("should add an href attribute to an a element", () {
+    const underTest = Html().create("a");
+    underTest.addAttribute("href", "http://www.google.com");
+    expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
+  });
+});
