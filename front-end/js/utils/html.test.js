@@ -95,9 +95,16 @@ describe("rmChildrenByClass", () =>{
 });
 
 describe("addAttribute", () => {
-  test("should add an href attribute to an a element", () {
+  test("should add an href attribute to an a element", () => {
     const underTest = Html().create("a");
     underTest.addAttribute("href", "http://www.google.com");
     expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
   });
+
+  test("should not add multiple href to an element", () =>{
+    const underTest = Html().create("a");
+    underTest.addAttribute("href", "http://www.google.com");
+    underTest.addAttribute("href", "http://www.notgoogle.com");
+    expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
+  })
 });

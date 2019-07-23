@@ -49,4 +49,9 @@ export default function () {
       }
       return this;
     }
+
+    addAttribute(attributeType, attributeName){
+      this.element.setAttribute(attributeType, attributeName);
+      return this;
+    }
   }
