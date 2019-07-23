@@ -114,6 +114,20 @@ describe("rmClass", () => {
     const underTest = Html().create("a");
     underTest.addClass("foo");
     underTest.rmClass("foo");
-    expect(underTest.render().classList.contains("foo")).toBeFalsey();
+    expect(underTest.render().classList.contains("foo")).toBeFalsy();
+  });
+
+  test("should do nothing when removing bar which isn't in the classlist", ()=>{
+    const underTest = Html().create("a").addClass("foo");;
+    const underTestWithoutBar = underTest.rmClass("bar");
+    expect(underTestWithoutBar).toEqual(underTest);
   });
 });
+
+describe("addClickEvent", () => {
+  test("button should return 'hello world' on click", () => {
+    const underTest = Html().create("button");
+    underTest.addClickEvent(underTest.addClass("button"));
+    expect(underTest.classList.contains("button"))
+  })
+})

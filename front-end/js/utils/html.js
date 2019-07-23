@@ -56,4 +56,10 @@ export default function () {
       }
       return this;
     }
+
+    rmClass(className){
+      this.element.classList.remove(className);
+
+      return this;
+    }
   }
