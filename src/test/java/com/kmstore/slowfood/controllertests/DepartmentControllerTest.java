@@ -52,9 +52,9 @@ public class DepartmentControllerTest {
 	
 	@Test
 	public void shouldSaveSingleDepartment() {
-		when(departmentRepo.save(any(Artist.class))).thenReturn(department1);
+		when(departmentRepo.save(any(Department.class))).thenReturn(department1);
 		when(departmentRepo.findAll()).thenReturn(Collections.singletonList(department1));
-		assertThat(underTest.postOneArtist(department1), is(Collections.singletonList(department1)));
+		assertThat(underTest.postSingleDepartment(department1), is(Collections.singletonList(department1)));
 	}
 
 }
