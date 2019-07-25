@@ -20,10 +20,10 @@ import com.kmstore.slowfood.repositories.DepartmentRepository;
 public class DepartmentControllerTest {
 	
 	@InjectMocks
-	private DepartmentController departmentController;
+	private DepartmentController underTest;
 	
 	@Mock
-	private DepartmentRepository underTest;
+	private DepartmentRepository departmentRepo;
 	
 	@Mock
 	private Department department1;
@@ -38,14 +38,14 @@ public class DepartmentControllerTest {
 	
 	@Test
 	public void shouldReturnListOfDepartments() {
-		when(underTest.findAll()).thenReturn(Collections.singletonList(department1));
+		when(departmentRepo.findAll()).thenReturn(Collections.singletonList(department1));
 		assertThat(underTest.retrieveAllDepartments(), contains(department1));
 		
 	}
 	
 	@Test
 	public void shouldReturnSingleDepartment() {
-		when(underTest.findById(1L)).thenReturn(Optional.of(department1));
+		when(departmentRepo.findById(1L)).thenReturn(Optional.of(department1));
 		assertThat(underTest.retrieveDepartment(1L), is(department1));
 	}
 
