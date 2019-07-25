@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,11 @@ public class DepartmentController {
 	@GetMapping("/departments/{id}")
 	public Department retrieveDepartment(@PathVariable Long id) {
 		return deptRepo.findById(id).get();
+	}
+
+	@PostMapping
+	public Iterable<Department> postSingleDepartment(@PathVariable Department dept) {
+		deptRepo.save(dept);
+		return deptRepo.findAll();
 	}
 }
