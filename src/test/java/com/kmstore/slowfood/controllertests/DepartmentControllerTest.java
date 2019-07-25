@@ -3,6 +3,7 @@ package com.kmstore.slowfood.controllertests;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.Collections;
@@ -48,6 +49,13 @@ public class DepartmentControllerTest {
 	public void shouldReturnSingleDepartment() {
 		when(departmentRepo.findById(1L)).thenReturn(Optional.of(department1));
 		assertThat(underTest.retrieveDepartment(1L), is(department1));
+	}
+	
+	@Test
+	public void shouldSaveSingleDepartment() {
+		when(departmentRepo.save(any(Department.class))).thenReturn(department1);
+		when(departmentRepo.findAll()).thenReturn(Collections.singletonList(department1));
+		assertThat(underTest.postSingleDepartment(department1), is(Collections.singletonList(department1)));
 	}
 
 }
