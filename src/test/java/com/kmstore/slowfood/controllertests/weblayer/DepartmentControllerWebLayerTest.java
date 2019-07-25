@@ -56,7 +56,7 @@ public class DepartmentControllerWebLayerTest {
 		@Test
 		public void fetchSingleDepartment() throws Exception {
 			when(departmentRepo.findById(1L)).thenReturn(Optional.of(department));
-			mockMvc.perform(get("/api/Departments/1")).andExpect(status().isOk())
+			mockMvc.perform(get("/api/departments/1")).andExpect(status().isOk())
 			.andExpect(content().contentType("application/json;charset=UTF-8"))
 			.andExpect(content().json("{}"))
 			.andExpect(content().json(mapper.writeValueAsString(department), true));
@@ -66,7 +66,7 @@ public class DepartmentControllerWebLayerTest {
 		public void createSingleDepartment() throws Exception {
 			when(departmentRepo.save(any(Department.class))).thenReturn(department);
 			when(departmentRepo.findAll()).thenReturn(Collections.singletonList(department));
-			mockMvc.perform(post("/api/Departments")
+			mockMvc.perform(post("/api/departments")
 					.contentType(MediaType.APPLICATION_JSON_UTF8)
 					.content(mapper.writeValueAsString(department)))
 					.andExpect(status().isOk())

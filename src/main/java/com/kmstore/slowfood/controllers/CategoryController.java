@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +30,8 @@ public class CategoryController {
 		return categoryRepo.findById(id).get();
 	}
 	
-	@PostMapping
-	public Iterable<Category> postSingleCategory(@PathVariable Category category){
+	@PostMapping("/categories")
+	public Iterable<Category> postSingleCategory(@RequestBody Category category){
 		categoryRepo.save(category);
 		return categoryRepo.findAll();
 	}

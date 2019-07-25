@@ -49,7 +49,7 @@ public class CategoryControllerWebLayerTest {
 		@Test
 		public void shouldFetchCollectionOfCategorys() throws Exception {
 			when(categoryRepo.findAll()).thenReturn(Collections.singletonList(category));
-			mockMvc.perform(get("/api/categorys")).andExpect(status().isOk())
+			mockMvc.perform(get("/api/categories")).andExpect(status().isOk())
 			.andExpect(content().contentType("application/json;charset=UTF-8"))
 			.andExpect(content().json("[{}]"))
 			.andExpect(content().json(mapper.writeValueAsString(Collections.singletonList(category)), true));;
@@ -58,7 +58,7 @@ public class CategoryControllerWebLayerTest {
 		@Test
 		public void fetchSingleCategory() throws Exception {
 			when(categoryRepo.findById(1L)).thenReturn(Optional.of(category));
-			mockMvc.perform(get("/api/Categorys/1")).andExpect(status().isOk())
+			mockMvc.perform(get("/api/categories/1")).andExpect(status().isOk())
 			.andExpect(content().contentType("application/json;charset=UTF-8"))
 			.andExpect(content().json("{}"))
 			.andExpect(content().json(mapper.writeValueAsString(category), true));
@@ -68,7 +68,7 @@ public class CategoryControllerWebLayerTest {
 		public void createSingleCategory() throws Exception {
 			when(categoryRepo.save(any(Category.class))).thenReturn(category);
 			when(categoryRepo.findAll()).thenReturn(Collections.singletonList(category));
-			mockMvc.perform(post("/api/Categorys")
+			mockMvc.perform(post("/api/categories")
 					.contentType(MediaType.APPLICATION_JSON_UTF8)
 					.content(mapper.writeValueAsString(category)))
 					.andExpect(status().isOk())
