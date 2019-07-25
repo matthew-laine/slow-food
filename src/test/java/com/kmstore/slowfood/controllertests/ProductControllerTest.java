@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.kmstore.slowfood.controllers.ProductController;
 import com.kmstore.slowfood.entities.Product;
 import com.kmstore.slowfood.repositories.ProductRepository;
 
