@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kmstore.slowfood.entities.Category;
@@ -46,7 +45,7 @@ public class JpaEntityMappingsTest {
 		departmentRepo.save(testDepartment);
 		testCategory = new Category("Category Name", testDepartment);
 		categoryRepo.save(testCategory);
-		testProduct = new Product("Product Name", testCategory);
+		testProduct = new Product("Product Name", "https://cdn-prod.medicalnewstoday.com/content/images/articles/266/266765/two-heads-of-broccoli.jpg", testCategory);
 		productRepo.save(testProduct);
 		flushAndClearEntityManager();
 	}

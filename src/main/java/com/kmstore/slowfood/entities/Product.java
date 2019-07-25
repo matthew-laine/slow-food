@@ -7,26 +7,26 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
-	
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
 
 	private String name;
+	private String imageUrl;
 
 	@ManyToOne
 	private Category category;
-	
-	public Product(String name, Category category) {
+
+	public Product(String name, String imageUrl, Category category) {
 		this.name = name;
+		this.imageUrl = imageUrl;
 		this.category = category;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Product() {
-		
+
 	}
 
 	public Long getId() {
@@ -35,6 +35,10 @@ public class Product {
 
 	public String getName() {
 		return name;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
 	public Category getCategory() {
@@ -65,7 +69,5 @@ public class Product {
 			return false;
 		return true;
 	}
-	
-	
 
 }
