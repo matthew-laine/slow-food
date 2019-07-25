@@ -23,7 +23,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kmstore.slowfood.entities.Department;
 import com.kmstore.slowfood.repositories.DepartmentRepository;
-import com.wcci.albumcollection.entities.Department;
 
 @WebMvcTest(DepartmentController.class)
 @RunWith(SpringRunner.class)

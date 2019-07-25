@@ -17,7 +17,6 @@ import org.mockito.MockitoAnnotations;
 
 import com.kmstore.slowfood.entities.Department;
 import com.kmstore.slowfood.repositories.DepartmentRepository;
-import com.wcci.albumcollection.entities.Artist;
 
 public class DepartmentControllerTest {
 	
