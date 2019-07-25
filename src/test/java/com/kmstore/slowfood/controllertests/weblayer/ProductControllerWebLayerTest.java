@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kmstore.slowfood.controllers.ProductController;
 import com.kmstore.slowfood.entities.Category;
 import com.kmstore.slowfood.entities.Department;
 import com.kmstore.slowfood.entities.Product;
