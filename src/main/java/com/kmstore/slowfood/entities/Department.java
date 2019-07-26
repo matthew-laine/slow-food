@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 public class Department {
 
@@ -19,8 +17,8 @@ public class Department {
 	
 	private String name;
 	
-	@JsonManagedReference
-	@OneToMany
+	
+	@OneToMany(mappedBy = "department")
 	private Set<Category> categories = new HashSet<Category>();
 
 	public Department(String name) {
