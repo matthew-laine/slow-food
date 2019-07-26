@@ -8,4 +8,6 @@ import com.kmstore.slowfood.entities.Department;
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department, Long> {
 
+	Department findByName(String name);
+
 }
