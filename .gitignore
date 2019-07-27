@@ -6,6 +6,7 @@ bin/
 !**/src/main/**
 !**/src/test/**
 node_modules/
+.cache/
 
 ### STS ###
 .apt_generated
