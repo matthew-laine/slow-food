@@ -8,7 +8,11 @@ testApi.getRequest(`http://localhost:8080/api/departments/1`, responseDept => {
     console.log(responseDept)
 })
 
-const menuButton = Html().select("nav-list__menu-button").click(event =>{
+
+const menuButton = Html().select(".site-nav__menu-button")
+const navUl = Html().select(".site-nav__list")
+console.log(menuButton.render())
+menuButton.click(event =>{
     event.preventDefault()
-    const navUl = Html().select("site-nav__list").toggleClass()
+    navUl.toggleClass("hidden")
 })
