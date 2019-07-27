@@ -40,11 +40,14 @@ body{
     height: 80%;
     width: 80%;
     margin: auto;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .item-figure__img{
     object-fit: contain;
-    margin: auto;
     max-height: 100%;
     max-width: 100%;
 }
