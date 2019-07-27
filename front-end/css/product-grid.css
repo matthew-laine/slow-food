@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +10,8 @@
 }
 
 html {
+    font: 20px 1.618;
+    font-family: 'Questrial', sans-serif;
     --background-color: #d3d3ff;
     border: none;
 }
@@ -31,7 +35,7 @@ body{
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .item-box{
@@ -60,9 +64,9 @@ body{
 }
 
 .item-name-header {
-
+    text-align:center;
 }
 
 .item-info-span {
-    
+    text-align: center;
 }
