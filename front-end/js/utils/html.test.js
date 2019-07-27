@@ -1,4 +1,6 @@
 import Html from "./html.js";
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 describe("create", () => {
   describe("should return new html object", () => {
@@ -75,6 +77,7 @@ describe("replace", () => {
       underTest.addChild(firstChildToAdd);
       underTest.replace(childToReplace);
       expect(underTest.render().querySelector("p")).toEqual(childToReplace.render());
+      expect(underTest.render().querySelectorAll('div').length).toEqual(0);
   });
 });
 
@@ -90,6 +93,63 @@ describe("rmChildrenByClass", () =>{
         underTest.rmChildrenByClass('remove')
         console.log(underTest.render().querySelector("div"))
         expect(underTest.render().querySelector("div")).toEqual(secondChildToAdd.render());
-    })
+    });
+});
 
-})
+describe("addAttribute", () => {
+  test("should add an href attribute to an a element", () => {
+    const underTest = Html().create("a");
+    underTest.addAttribute("href", "http://www.google.com");
+    expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
+  });
+
+  test("should not add multiple href to an element", () =>{
+    const underTest = Html().create("a");
+    underTest.addAttribute("href", "http://www.google.com");
+    underTest.addAttribute("href", "http://www.notgoogle.com");
+    expect(underTest.element.getAttribute("href")).toBe("http://www.google.com");
+  });
+});
+
+describe("rmClass", () => {
+  test("should remove class foo", () => {
+    const underTest = Html().create("a");
+    underTest.addClass("foo");
+    underTest.rmClass("foo");
+    expect(underTest.render().classList.contains("foo")).toBeFalsy();
+  });
+
+  test("should do nothing when removing bar which isn't in the classlist", ()=>{
+    const underTest = Html().create("a").addClass("foo");
+    const underTestWithoutBar = underTest.rmClass("bar");
+    expect(underTestWithoutBar).toEqual(underTest);
+  });
+});
+
+describe('text', () => {
+  test('Should return text', () => {
+      const text = Html().create("p");
+      text.render().textContent = "This is text";
+      expect(text.text()).toBe("This is text");
+  });
+  test('Should add text to element', () => {
+      const text = "add me to the element";
+      const element = Html().create('p');
+      element.text(text);
+      expect(element.text()).toBe(text);
+  });
+});
+
+describe('select', () => {
+  test('should select h1 element', () => {
+
+      const dom = new JSDOM(`<div>
+        <h1>JSDOM mocking</h1>
+      </div>`);
+
+      const select = jest.fn(Html().select('h1').text());
+      select.mockReturnValue('JSDOM mocking');
+      expect(select()).toBe(dom.window.document.querySelector('h1').textContent);
+
+  });
+});

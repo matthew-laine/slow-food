@@ -28,9 +28,10 @@ export default function () {
         this.element = newElement;
         return this;
     }
+
     
     replace(replacementChild){
-      this.innerHTML = '';
+      this.element.innerHTML = '';
       this.addChild(replacementChild);
       
       return this;
@@ -39,14 +40,46 @@ export default function () {
     render() {
       return this.element;
     }
-
+    
     rmChildrenByClass(className){
-
+      
       let childrenWithClassName = this.element.getElementsByClassName(className);
       while(childrenWithClassName.length>0){
         this.element.removeChild(childrenWithClassName[0]);
         childrenWithClassName = this.element.getElementsByClassName(className);
       }
+      return this;
+    }
+    
+    addAttribute(attributeType, attributeName){
+      if (!this.element.getAttribute(attributeType)) {
+        this.element.setAttribute(attributeType, attributeName);
+      }
+      return this;
+    }
+    
+    rmClass(className){
+      this.element.classList.remove(className);
+      return this;
+    }
 
+    select(query) {
+      const selection = document.querySelectorAll(query);
+  
+      if (selection.length === 1) {
+        this.element = selection[0];
+      } else {
+        this.element = selection;
+      }
+      return this;
+    }
+
+    text(textToAdd) {
+      if (textToAdd === undefined) {
+        return this.element.textContent;
+      }
+      this.element.textContent = textToAdd;
+  
+      return this;
     }
   }

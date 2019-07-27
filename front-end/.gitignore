@@ -6,6 +6,9 @@ bin/
 !**/src/main/**
 !**/src/test/**
 node_modules/
+coverage/
+yarn.lock
+package-lock.json
 
 ### STS ###
 .apt_generated
