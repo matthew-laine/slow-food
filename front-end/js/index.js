@@ -7,9 +7,9 @@ const html = new Html();
 
 const components = new Components();
 
-// Components().renderWholePage();
+Components().renderWholePage();
 
-Components().createSingleItem('foo', 'bar', 'http://lorempixel.com/400/200')
+// Components().createSingleItem('foo', 'bar', 'http://lorempixel.com/400/200');
 
 
 // const menuButton = Html().select(".site-nav__menu-button")

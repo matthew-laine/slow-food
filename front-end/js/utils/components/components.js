@@ -14,17 +14,22 @@ class Components {
             .addClass('wrapper');
     }
 
+    createContainerDiv() {
+        return Html().create('div')
+            .addClass('container');
+    }
+
     createSingleItem(name, info, imageUrl) {
         const item = Html().create('div')
             .addClass('item-box')
             .addChild(
                 Html().create('figure')
                     .addClass('item-figure')
-                    // .addChild(
-                    //     Html().create('img')
-                    //         .addClass('item-figure__img')
-                    //         .addAttribute('src', imageUrl)
-                    // )
+                    .addChild(
+                        Html().create('img')
+                            .addClass('item-figure__img')
+                            .addAttribute('src', imageUrl)
+                    )
             )
             .addChild(
                 Html().create('h1')
@@ -36,30 +41,32 @@ class Components {
                     .addClass('item-info-span')
                     .text(info)
             );
-            console.log(item);
+        return item;
     }
 
     createItemGrid(itemCollection) {
         const itemGrid = Html().create('div')
             .addClass('item-grid');
         itemCollection.forEach(item => {
-            // console.log(item);
-            itemGrid.addChild(this.createSingleItem(item.name, item.categoryName, item.imageUrl));
+            const itemToAdd = this.createSingleItem(item.name, item.categoryName, item.imageUrl);
+            itemGrid.addChild(itemToAdd);
         });
         return itemGrid;
     }
 
-    createProductGridFromEndPoint(endPoint) {
+    itemGridToContainer(endPoint) {
+        let container = this.createContainerDiv();
         Api().getRequest(`http://localhost:8080/api/${endPoint}`, (responseCollection) => {
-            // console.log(responseCollection);
-            this.createItemGrid(responseCollection);
+            container.addChild(this.createItemGrid(responseCollection));
         });
+        return container;
     }
 
     renderWholePage() {
         const app = this.getAppContext();
-        const grid = this.createProductGridFromEndPoint('products');
-        console.log(grid);
-        // app.replace(grid);
+        const wrapper = this.createWrapperDiv();
+        const container = this.itemGridToContainer('products');
+        wrapper.addChild(container);
+        app.addChild(wrapper);
     }
 }

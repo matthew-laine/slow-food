@@ -3,6 +3,12 @@ export default function () {
 }
 
 class Html{
+
+  addAttribute(attributeToSet, attributeValue) {
+    this.element.setAttribute(attributeToSet, attributeValue);
+
+    return this;
+  }
     
   addChild(childToAdd){
     this.element.append(childToAdd.render());
