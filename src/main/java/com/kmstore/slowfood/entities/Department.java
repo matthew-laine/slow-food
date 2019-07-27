@@ -17,7 +17,8 @@ public class Department {
 	
 	private String name;
 	
-	@OneToMany
+	
+	@OneToMany(mappedBy = "department")
 	private Set<Category> categories = new HashSet<Category>();
 
 	public Department(String name) {

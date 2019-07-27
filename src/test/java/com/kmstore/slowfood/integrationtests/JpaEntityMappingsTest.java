@@ -67,6 +67,7 @@ public class JpaEntityMappingsTest {
 		Product retrievedProduct = productRepo.findById(testProduct.getId()).get();
 		assertThat(retrievedProduct, is(testProduct));
 	}
+	
 
 	private void flushAndClearEntityManager() {
 		entityManager.flush();
