@@ -70,7 +70,7 @@ public class Initializer implements CommandLineRunner{
 	}
 	
 	private void createProducts() {
-		Product driscollsStrawberries = new Product("driscoll's-strawberries", "https://driscolls.imgix.net/-/media/images/pages/finest-berries/strawberries/modal/long-stem.ashx", categoryRepo.findByName("fruit"));
+		Product driscollsStrawberries = new Product("driscoll's-strawberries", "https://driscolls.imgix.net/-/media/images/pages/finest-berries/strawberries/modal/long-stem.ashx", categoryRepo.findByName("fruits"));
 		productRepo.save(driscollsStrawberries);
 	}
 }
