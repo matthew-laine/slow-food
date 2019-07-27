@@ -1,3 +1,5 @@
+/* DEFAULTS */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,6 +19,22 @@ body{
     border: none;
 }
 
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: inherit;
+    color: inherit;
+}
+/* UTILS */
+
+.hidden{
+    display: none;
+}
+
+/* SITE CONTAINERS */
+
 .container {
     padding: 1rem;
     margin: auto;
@@ -25,6 +43,23 @@ body{
 .wrapper{
     border: none;
 }
+
+/* HEADER STUFF */
+.site-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-title{
+    
+}
+
+.site-nav{
+   
+}
+
+
+/* GRID STUFF */
 
 .item-grid{
     border-color: purple;
@@ -41,6 +76,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 24rem;
+    box-shadow: 0 0 10px #000000c5;
 }
 
 .item-figure{
