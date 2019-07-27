@@ -100,8 +100,8 @@ class Html{
   }
 
   toggleClass(classToToggle) {
-    if(this.element.classList.contains(classToAdd)) {
-      this.rmClass();
+    if(this.element.classList.contains(classToToggle)) {
+      this.rmClass(classToToggle);
     } else {
       this.addClass(classToToggle);
     }
