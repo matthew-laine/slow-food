@@ -17,6 +17,11 @@ body{
     border: none;
 }
 
+.container {
+    padding: 1rem;
+    margin: auto;
+}
+
 .wrapper{
     border: none;
 }
@@ -26,9 +31,12 @@ body{
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 15rem));
+    justify-content: center;
 }
 
 .item-box{
+    border-color: green;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,13 +44,12 @@ body{
 }
 
 .item-figure{
-    border: green;
+    display: flex;
     height: 80%;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    display: flex;
     justify-content: center;
+    margin: auto;
+    object-fit: contain;
+    width: 80%;
     
 }
 
