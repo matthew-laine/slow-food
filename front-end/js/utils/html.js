@@ -23,11 +23,11 @@ class Html {
     return this;
   }
 
-  // click(callback) {
-  //   this.element.addEventListener("click", callback);
+  click(callback) {
+    this.element.addEventListener("click", callback);
 
-  //   return this;
-  // }
+    return this;
+  }
 
   create(elementType) {
     if (!elementType) {
@@ -41,14 +41,14 @@ class Html {
     return this;
   }
 
-  // html(contentToAdd) {
-  //   if (contentToAdd === undefined) {
-  //     return this.element.innerHTML;
-  //   }
-  //   this.element.innerHTML = contentToAdd;
+  html(contentToAdd) {
+    if (contentToAdd === undefined) {
+      return this.element.innerHTML;
+    }
+    this.element.innerHTML = contentToAdd;
 
-  //   return this;
-  // }
+    return this;
+  }
   
   render() {
     return this.element;
