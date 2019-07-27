@@ -16,6 +16,7 @@ public class Product {
 
 	private String name;
 	private String imageUrl;
+	private String categoryName;
 
 	@JsonIgnore
 	@ManyToOne
@@ -25,6 +26,12 @@ public class Product {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.category = category;
+		this.categoryName = category.getName();
+		
+	}
+
+	public String getCategoryName() {
+		return categoryName;
 	}
 
 	@SuppressWarnings("unused")
