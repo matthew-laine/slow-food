@@ -16,7 +16,7 @@ export default function () {
       this.element.classList.add(classToAdd);
       return this;
     }
-    
+
     create(elementType){
         if(!elementType){
           throw new Error('Must Pass Valid Html Element');
@@ -28,7 +28,6 @@ export default function () {
         this.element = newElement;
         return this;
     }
-
     
     replace(replacementChild){
       this.element.innerHTML = '';
