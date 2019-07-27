@@ -126,13 +126,13 @@ describe("rmClass", () => {
   });
 });
 
-describe('text', () => {
-  test('Should return text', () => {
+describe("text", () => {
+  test("Should return text", () => {
       const text = Html().create("p");
       text.render().textContent = "This is text";
       expect(text.text()).toBe("This is text");
   });
-  test('Should add text to element', () => {
+  test("Should add text to element", () => {
       const text = "add me to the element";
       const element = Html().create('p');
       element.text(text);
@@ -140,8 +140,8 @@ describe('text', () => {
   });
 });
 
-describe('select', () => {
-  test('should select h1 element', () => {
+describe("select", () => {
+  test("should select h1 element", () => {
 
       const dom = new JSDOM(`<div>
         <h1>JSDOM mocking</h1>
@@ -153,3 +153,8 @@ describe('select', () => {
 
   });
 });
+
+// describe("html", () => {
+//   const html = Html().create("div");
+//   html.html('div')
+// });
