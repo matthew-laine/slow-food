@@ -34,12 +34,12 @@ class Components {
             .addChild(
                 Html().create('h1')
                     .addClass('item-name-header')
-                    .text(name)
+                    .text(this.capitalizeFirstLetter(name))
             )
             .addChild(
                 Html().create('span')
                     .addClass('item-info-span')
-                    .text(info)
+                    .text(this.capitalizeFirstLetter(info))
             );
         return item;
     }
@@ -68,5 +68,9 @@ class Components {
         const container = this.itemGridToContainer('products');
         wrapper.addChild(container);
         app.addChild(wrapper);
+    }
+
+    capitalizeFirstLetter(str){
+        return str.charAt(0).toUpperCase() + str.slice(1)
     }
 }
