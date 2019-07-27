@@ -5,27 +5,27 @@ export default function () {
 class Html{
     
   addChild(childToAdd){
-      this.element.append(childToAdd.render());
-      return this;
-    }
+    this.element.append(childToAdd.render());
+    return this;
+  }
     
-    addClass(classToAdd){
-      if(this.element.classList.contains(classToAdd)) {
-        throw new Error("Class already exists on element.");
-      }
-      this.element.classList.add(classToAdd);
-      return this;
+  addClass(classToAdd){
+    if(this.element.classList.contains(classToAdd)) {
+      throw new Error("Class already exists on element.");
     }
+    this.element.classList.add(classToAdd);
+    return this;
+  }
     
-    replace(replacementChild){
-      this.element.innerHTML = '';
-      this.addChild(replacementChild);
+  replace(replacementChild){
+    this.element.innerHTML = '';
+    this.addChild(replacementChild);
       
-      return this;
-    }
+    return this;
+  }
     
    render() {
-      return this.element;
+    return this.element;
    }
 
   click(callback) {
