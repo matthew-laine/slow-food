@@ -3,6 +3,7 @@ package com.kmstore.slowfood.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,6 +16,8 @@ public class Product {
 	private Long id;
 
 	private String name;
+	
+	@Lob
 	private String imageUrl;
 	private String categoryName;
 
