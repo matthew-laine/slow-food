@@ -98,4 +98,12 @@ class Html{
     this.element.textContent = textToAdd;
     return this;
   }
+
+  toggleClass(classToToggle) {
+    if(this.element.classList.contains(classToAdd)) {
+      this.rmClass();
+    } else {
+      this.addClass(classToToggle);
+    }
+  }
 }
