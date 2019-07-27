@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
 	
@@ -19,10 +21,11 @@ public class Category {
 	
 	private String name;
 
+	@JsonIgnore
 	@ManyToOne
 	private Department department;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "category")
 	private Set<Product> products = new HashSet<Product>();
 	
 	public Category(String name, Department department) {

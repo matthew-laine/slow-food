@@ -2,26 +2,31 @@ export default function () {
   return new Html();
 }
 
-class Html {
-  addAttribute(attributeType, attributeName) {
-    if (!this.element.getAttribute(attributeType)) {
-      this.element.setAttribute(attributeType, attributeName);
+class Html{
+    
+  addChild(childToAdd){
+      this.element.append(childToAdd.render());
+      return this;
     }
-    return this;
-  }
-
-  addChild(childToAdd) {
-    this.element.append(childToAdd.render());
-    return this;
-  }
-
-  addClass(classToAdd) {
-    if (this.element.classList.contains(classToAdd)) {
-      throw new Error("Class already exists on element.");
+    
+    addClass(classToAdd){
+      if(this.element.classList.contains(classToAdd)) {
+        throw new Error("Class already exists on element.");
+      }
+      this.element.classList.add(classToAdd);
+      return this;
     }
-    this.element.classList.add(classToAdd);
-    return this;
-  }
+    
+    replace(replacementChild){
+      this.element.innerHTML = '';
+      this.addChild(replacementChild);
+      
+      return this;
+    }
+    
+   render() {
+      return this.element;
+   }
 
   click(callback) {
     this.element.addEventListener("click", callback);
