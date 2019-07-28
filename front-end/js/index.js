@@ -7,7 +7,7 @@ const html = new Html();
 
 const components = new Components();
 
-Components().renderWholePage();
+Components().renderHomePage();
 
 // Components().createSingleItem('foo', 'bar', 'http://lorempixel.com/400/200');
 

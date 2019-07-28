@@ -36,9 +36,21 @@ class Components {
         return Html().select('.menu');
     }
 
-    createSingleItem(name, info, imageUrl) {
+    renderSingleProductPage(id) {
+        console.log('running renderSingleProductPage method for product with id ' + id);
+
+        Api().getRequest(`http://localhost:8080/api/products/${id}`, (product) => {
+           console.log('hit end point'); 
+        });
+    }
+
+    createSingleItem(name, info, imageUrl, id) {
         const item = Html().create('div')
             .addClass('item-box')
+            .click(event => {
+                event.preventDefault();
+                this.renderSingleProductPage(id);
+            })
             .addChild(
                 Html().create('figure')
                     .addClass('item-figure')
@@ -65,7 +77,7 @@ class Components {
         const itemGrid = Html().create('div')
             .addClass('item-grid');
         itemCollection.forEach(item => {
-            const itemToAdd = this.createSingleItem(item.name, item.categoryName, item.imageUrl);
+            const itemToAdd = this.createSingleItem(item.name, item.categoryName, item.imageUrl, item.id);
             itemGrid.addChild(itemToAdd);
         });
         return itemGrid;
@@ -77,10 +89,6 @@ class Components {
             container.addChild(this.createItemGrid(responseCollection));
         });
         return container;
-    }
-
-    showRelatedProductsPage() {
-
     }
 
     createSiteTitleHeader() {
@@ -219,14 +227,25 @@ class Components {
     }
 
     renderAllProductsPage() {
+        const wrapper = this.getWrapperDiv();
+        const container = this.itemGridToContainer('products');
+        const header = this.getSiteHeader();
+        const menu = this.getMenuDiv();
+        wrapper.replace(header);
+        wrapper.addChild(menu);
+        wrapper.addChild(container);
+        return container;
+    }
+
+    renderHomePage() {
         const app = this.getAppContext();
         const wrapper = this.createWrapperDiv();
-        const container = this.itemGridToContainer('products');
+        const container = this.createContainerDiv();
         const header = this.createSiteHeader();
         const menu = this.createMenuDiv();
         wrapper.addChild(header);
-        wrapper.addChild(menu);
         wrapper.addChild(container);
+        wrapper.addChild(menu);
         app.replace(wrapper);
     }
 
