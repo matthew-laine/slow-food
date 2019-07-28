@@ -19,6 +19,14 @@ class Components {
             .addClass('container');
     }
 
+    getWrapperDiv() {
+        return Html().select('.wrapper');
+    }
+
+    getContainerDiv() {
+        return Html().select('.container');
+    }
+
     createSingleItem(name, info, imageUrl) {
         const item = Html().create('div')
             .addClass('item-box')
@@ -119,7 +127,7 @@ class Components {
     }
 
     toggleMenu(requestedData) {
-
+        
     }
 
     renderWholePage() {
