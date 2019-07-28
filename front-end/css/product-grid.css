@@ -13,6 +13,7 @@ html {
     --gradient-top: rgba(255, 250, 240, 0.8);
     --gradient-bottom: rgba(255, 255, 255, 0.6);
     --header-color: green;
+    --max-width: 55rem;
 
     /* STYLE */
     background-image: linear-gradient(var(--gradient-top), var(--gradient-bottom)), url("../images/background.jpg");
@@ -53,6 +54,8 @@ a{
 
 .wrapper{
     text-shadow: 5px 5px 10px grey;
+    margin: auto;
+    max-width: var(--max-width);
 }
 
 /* HEADER STUFF */
@@ -62,9 +65,10 @@ a{
     color: var(--background-color);
     display: flex;
     justify-content: space-between;
+    max-width: var(--max-width);
     position: fixed;
     top: 0;
-    width: 100vw;
+    width:100%;
     z-index: 1;
 }
 
@@ -114,9 +118,10 @@ padding-right: 1rem;
     box-shadow: 0 0 10px #000000c5;
     display: flex;
     justify-content: center;
+    max-width: var(--max-width);
     position: fixed;
     top: 6.6rem;
-    width: 100vw;
+    width: 100%;
     z-index: 2;
 }
 
