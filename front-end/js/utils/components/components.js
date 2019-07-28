@@ -79,6 +79,10 @@ class Components {
         return container;
     }
 
+    showRelatedProductsPage() {
+
+    }
+
     createSiteTitleHeader() {
         return Html().create('div')
             .addClass('site-title')
@@ -135,6 +139,10 @@ class Components {
         return header;
     }
 
+    getSiteHeader() {
+        return Html().select('.site-header');
+    }
+
     createMenuList(requestedData) {
         const menuList = Html().create('ul')
             .addClass('menu-list')
@@ -157,6 +165,10 @@ class Components {
                 response = response.products;
                 directToRelatedProductsPage = true;
             }
+            if(directToRelatedProductsPage) {
+                this.hideMenu()
+                this.renderProductsPage(response)
+            }
             response.forEach(item => {
                 let itemEndPoint = requestedData + '/' + item.id;
                 menuList.addChild(
@@ -168,11 +180,7 @@ class Components {
                                 .text(this.capitalizeFirstLetter(item.name))
                                 .click(event => {
                                     event.preventDefault()
-                                    if (!directToRelatedProductsPage) {
                                         this.showMenu(itemEndPoint);
-                                    } else {
-                                        console.log('go to products page')
-                                    }
                                 })
                         )
                 )
@@ -197,8 +205,17 @@ class Components {
         menu.replace();
     }
 
-    renderProductsPage() {
-        this.renderWholePage();
+    renderProductsPage(productsCollection) {
+        const wrapper = this.getWrapperDiv();
+        const container = this.createContainerDiv();
+        const header = this.getSiteHeader();
+        const menu = this.getMenuDiv();
+        const productGrid = this.createItemGrid(productsCollection);
+        container.addChild(productGrid);
+        wrapper.replace(header);
+        wrapper.addChild(menu);
+        wrapper.addChild(container);
+        return container;
     }
 
     renderWholePage() {
