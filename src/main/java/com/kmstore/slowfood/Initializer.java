@@ -70,6 +70,8 @@ public class Initializer implements CommandLineRunner{
 	}
 	
 	private void createProducts() {
+//		PRODUCE
+//		fruits
 		Product strawberries = new Product("strawberries", "https://driscolls.imgix.net/-/media/images/pages/finest-berries/strawberries/modal/long-stem.ashx", categoryRepo.findByName("fruits"));
 		productRepo.save(strawberries);
 		Product tomatoes = new Product("tomatoes", "http://pngimg.com/uploads/tomato/tomato_PNG12567.png", categoryRepo.findByName("fruits"));
@@ -87,7 +89,7 @@ public class Initializer implements CommandLineRunner{
 //		Product tomatoes = new Product("", "", categoryRepo.findByName("fruits"));
 //		productRepo.save();
 		
-		
+//		vegetables
 		Product celery = new Product("celery", "https://i5.walmartimages.ca/images/Large/094/529/6000200094529.jpg", categoryRepo.findByName("vegetables"));
 		productRepo.save(celery);
 		Product asparagus = new Product("asparagus", "https://rasamalaysia.com/wp-content/uploads/2018/04/butter-sauteed-asparagus.jpg", categoryRepo.findByName("vegetables"));
@@ -97,7 +99,7 @@ public class Initializer implements CommandLineRunner{
 		Product parsnips = new Product("parsnips", "https://www.thespruceeats.com/thmb/6SRgfSeQF5NdzB0t1csjIEzWr9g=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/parsnips-g2k-56a8c1ff3df78cf772a05b87.jpg", categoryRepo.findByName("vegetables"));
 		productRepo.save(parsnips);
 		
-		
+//		leafy-greens
 		Product cabbage = new Product("cabbage", "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24172325/ING-green-cabbage-2-thumb1x1.jpg", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(cabbage);
 		Product spinach = new Product("spinach", "https://img.purch.com/rc/300x200/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA3Ni85MTYvb3JpZ2luYWwvc3BpbmFjaC5qcGc=", categoryRepo.findByName("vegetables"));
@@ -106,6 +108,41 @@ public class Initializer implements CommandLineRunner{
 		productRepo.save(kale);
 		Product lettuce = new Product("lettuce", "https://cdn.britannica.com/s:300x300/77/170677-004-75972A4C.jpg", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(lettuce);
+		
+//		MEAT
+//		pork
+		Product blackForestHam = new Product("black forest ham", "https://images-na.ssl-images-amazon.com/images/I/61F-oMTcApL._SX355_.jpg", categoryRepo.findByName("pork"));
+		productRepo.save(blackForestHam);
+		Product hamOffTheBone = new Product("ham off the bone", "https://images-na.ssl-images-amazon.com/images/I/31vT6uGiZuL.jpg", categoryRepo.findByName("pork"));
+		productRepo.save(hamOffTheBone);
+		Product bacon = new Product("bacon", "http://www.foodnutritiontable.com/_lib/img/prod/big/ontbijtspek.jpg", categoryRepo.findByName("pork"));
+		productRepo.save(bacon);
+		Product porkRibs = new Product("pork ribs", "", categoryRepo.findByName("pork"));
+		productRepo.save(porkRibs);
+		Product porkChops = new Product("pork chops", "https://www.barfblog.com/wp-content/uploads/2011/06/pork_chop_raw.jpg", categoryRepo.findByName("pork"));
+		productRepo.save(porkChops);
+		Product porkloin = new Product("porkloin", "https://image.shutterstock.com/image-photo/raw-pork-fillet-isolated-on-260nw-463142702.jpg", categoryRepo.findByName("pork"));
+		productRepo.save(porkloin);
+		
+		Product burgerPatty = new Product("burger patty", "https://s3.envato.com/files/248946677/38743_.jpg", categoryRepo.findByName("beef"));
+		productRepo.save(burgerPatty);
+		Product steak = new Product("steak", "http://www.topratedsteakhouses.com/wp-content/uploads/2013/11/Raw-Rib-Eye-e1384445199924.jpg", categoryRepo.findByName("beef"));
+		productRepo.save(steak);
+		Product beefRibs = new Product("beef ribs", "https://images-na.ssl-images-amazon.com/images/I/81Uwv1R1zSL._AC._SR360,460.jpg", categoryRepo.findByName("beef"));
+		productRepo.save(beefRibs);
+		Product roundSteak = new Product("round steak", "https://cdn.shopify.com/s/files/1/1463/5240/products/top_round_steak_burned_large.png?v=1477316242", categoryRepo.findByName("beef"));
+		productRepo.save(roundSteak);
+		
+		Product whokeTurkey = new Product("whole turkey", "https://www.freepngimg.com/thumb/meat/33503-6-chicken-meat-transparent-background.png", categoryRepo.findByName("poultry"));
+		productRepo.save(whokeTurkey);
+		Product wholeChicken = new Product("whole chicken", "http://www.m-tradegroup.com/wp-content/uploads/2017/04/22739276_s.jpg", categoryRepo.findByName("poultry"));
+		productRepo.save(wholeChicken);
+		Product wholeGoose = new Product("whole goose", "https://c7.uihere.com/files/165/456/62/chicken-fingers-chicken-leg-chicken-meat-roast-chicken-chicken-meat-transparent-background.jpg", categoryRepo.findByName("poultry"));
+		productRepo.save(wholeGoose);
+		Product wholeDuck = new Product("whole duck", "https://www.trzcacak.rs/myfile/detail/31-318516_download-chicken-meat-png-images-background-broiler-chicken.png", categoryRepo.findByName("poultry"));
+		productRepo.save(wholeDuck);
+		Product goldenTurkey = new Product("golden turkey", "http://www.miturkey.com/uploads/images/Content/RTC.png", categoryRepo.findByName("", "", categoryRepo.findByName("poultry"))
+		productRepo.save(goldenTurkey);
 		
 	}
 }
