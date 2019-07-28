@@ -44,6 +44,7 @@ a{
 .container {
     padding: 1rem;
     margin: auto;
+    margin-top: 7rem;
 }
 
 .wrapper{
@@ -56,15 +57,26 @@ a{
     color: var(--background-color);
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
 }
 
 .site-title {
-    display: flex;
     align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    text-shadow: 0 0 10px #000000c5;
 }
 
-.site-title__header {
-    padding: 1rem;
+.site-title__header-title {
+}
+
+.site-title__header-subtitle {
+    font-size: 0.92rem;
 }
 
 .site-nav{
@@ -73,11 +85,12 @@ a{
 
 
 .site-nav__list {
-
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .site-nav__list-item {
-
+    padding-bottom: 0.5rem;
 }
 
 .site-nav__list-item-button {
@@ -86,8 +99,8 @@ a{
     border-radius: 0.5rem;
     box-shadow: 0 0 10px #000000c5;
     color: var(--header-color);
-    padding: 0.5rem;
-    width: 1fr;
+    padding: 0.3rem;
+    width: 6rem;
 }
 
 .site-nav__list-item-button:hover {

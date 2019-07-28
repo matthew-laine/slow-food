@@ -66,8 +66,12 @@ class Components {
         return Html().create('div')
             .addClass('site-title')
             .addChild(Html().create('h1')
-                .addClass('site-title__header')
-                .text('Slow Food'));
+                .addClass('site-title__header-title')
+                .text('Slow Food')
+            )
+            .addChild(Html().create('h2')
+                .addClass('site-title__header-subtitle')
+                .text('Definitely not fast food'));
     }
 
     createSiteNavListItem(requestedData) {
@@ -75,7 +79,11 @@ class Components {
             .addClass('site-nav__list-item')
             .addChild(Html().create('button')
                 .addClass('site-nav__list-item-button')
-                .text(this.capitalizeFirstLetter(requestedData)));
+                .text(this.capitalizeFirstLetter(requestedData))
+                .click(event => {
+                    event.preventDefault();
+                    this.toggleMenu(requestedData);
+                }));
     }
 
     createSiteNavList() {
@@ -110,7 +118,9 @@ class Components {
         return header;
     }
 
+    toggleMenu(requestedData) {
 
+    }
 
     renderWholePage() {
         const app = this.getAppContext();
