@@ -147,8 +147,18 @@ class Components {
                         this.hideMenu();
                     })
             );
-        Api().getRequest(`http://localhost:8080/api/${requestedData}`, (responseCollection) => {
-            responseCollection.forEach(item => {
+        Api().getRequest(`http://localhost:8080/api/${requestedData}`, (response) => {
+            let directToRelatedProductsPage = false;
+            if (response.categories) {
+                requestedData = 'categories';
+                response = response.categories;
+            }
+            if (response.products) {
+                response = response.products;
+                directToRelatedProductsPage = true;
+            }
+            response.forEach(item => {
+                let itemEndPoint = requestedData + '/' + item.id;
                 menuList.addChild(
                     Html().create('li')
                         .addClass('menu-list__item')
@@ -156,6 +166,14 @@ class Components {
                             Html().create('button')
                                 .addClass('menu-list__item-button')
                                 .text(this.capitalizeFirstLetter(item.name))
+                                .click(event => {
+                                    event.preventDefault()
+                                    if (!directToRelatedProductsPage) {
+                                        this.showMenu(itemEndPoint);
+                                    } else {
+                                        console.log('go to products page')
+                                    }
+                                })
                         )
                 )
             })
@@ -169,7 +187,6 @@ class Components {
         }
         else {
             const menu = this.getMenuDiv();
-            console.log(menu.html())
             const menuList = this.createMenuList(requestedData);
             menu.replace(menuList);
         }
