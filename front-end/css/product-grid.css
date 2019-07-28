@@ -25,6 +25,10 @@ body{
 
 }
 
+button:hover {
+    background-color: tan;
+}
+
 ul{
     list-style: none;
 }
@@ -54,6 +58,7 @@ a{
 /* HEADER STUFF */
 .site-header{
     background-color: var(--header-color);
+    box-shadow: 0 0 10px #000000c5;
     color: var(--background-color);
     display: flex;
     justify-content: space-between;
@@ -80,13 +85,12 @@ a{
 }
 
 .site-nav{
-
+padding-right: 1rem;
 }
 
 
 .site-nav__list {
     padding-top: 0.5rem;
-    padding-right: 0.5rem;
 }
 
 .site-nav__list-item {
@@ -103,10 +107,51 @@ a{
     width: 6rem;
 }
 
-.site-nav__list-item-button:hover {
-    background-color: tan;
+/* MENU STUFF */
+
+.menu {
+    background-color: var(--header-color);
+    box-shadow: 0 0 10px #000000c5;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 6.6rem;
+    width: 100vw;
+    z-index: 2;
 }
 
+.menu-list{
+    padding: 1rem;
+    width: 80%
+}
+
+.menu-list__item{
+    justify-content: center;
+    display: flex;
+    padding: 0.4rem;
+}
+
+.menu-list__item-button{
+    background-color: var(--background-color);
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px #000000c5;
+    color: var(--header-color);
+    padding: 0.4rem;
+    font-size: 1.5rem;
+    width: 90%;
+}
+
+.menu-list__hide-button {
+    background-color: var(--background-color);
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px #000000c5;
+    color: var(--header-color);
+    padding: 0.3rem;
+    position: absolute;
+    right: 1rem;
+}
 
 /* ITEM GRID STUFF */
 

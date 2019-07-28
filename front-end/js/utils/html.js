@@ -63,6 +63,9 @@ class Html{
   
   replace(replacementChild) {
     this.element.innerHTML = "";
+    if(!replacementChild) {
+      return this;
+    }
     this.addChild(replacementChild);
 
     return this;

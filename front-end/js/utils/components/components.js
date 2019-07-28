@@ -19,12 +19,21 @@ class Components {
             .addClass('container');
     }
 
+    createMenuDiv() {
+        return Html().create('div')
+            .addClass('menu');
+    }
+
     getWrapperDiv() {
         return Html().select('.wrapper');
     }
 
     getContainerDiv() {
         return Html().select('.container');
+    }
+
+    getMenuDiv() {
+        return Html().select('.menu');
     }
 
     createSingleItem(name, info, imageUrl) {
@@ -90,7 +99,7 @@ class Components {
                 .text(this.capitalizeFirstLetter(requestedData))
                 .click(event => {
                     event.preventDefault();
-                    this.toggleMenu(requestedData);
+                    this.showMenu(requestedData);
                 }));
     }
 
@@ -126,8 +135,53 @@ class Components {
         return header;
     }
 
-    toggleMenu(requestedData) {
-        
+    createMenuList(requestedData) {
+        const menuList = Html().create('ul')
+            .addClass('menu-list')
+            .addChild(
+                Html().create('button')
+                    .addClass('menu-list__hide-button')
+                    .text(this.capitalizeFirstLetter('hide'))
+                    .click(event => {
+                        event.preventDefault();
+                        this.hideMenu();
+                    })
+            );
+        Api().getRequest(`http://localhost:8080/api/${requestedData}`, (responseCollection) => {
+            responseCollection.forEach(item => {
+                menuList.addChild(
+                    Html().create('li')
+                        .addClass('menu-list__item')
+                        .addChild(
+                            Html().create('button')
+                                .addClass('menu-list__item-button')
+                                .text(this.capitalizeFirstLetter(item.name))
+                        )
+                )
+            })
+        });
+        return menuList;
+    }
+
+    showMenu(requestedData) {
+        if(requestedData === 'products') {
+            this.renderProductsPage();
+        }
+        else {
+            const menu = this.getMenuDiv();
+            console.log(menu.html())
+            const menuList = this.createMenuList(requestedData);
+            menu.replace(menuList);
+        }
+    }
+
+    hideMenu() {
+        const menu = this.getMenuDiv();
+        menu.replace();
+    }
+
+    renderProductsPage() {
+        this.renderWholePage();
     }
 
     renderWholePage() {
@@ -135,9 +189,11 @@ class Components {
         const wrapper = this.createWrapperDiv();
         const container = this.itemGridToContainer('products');
         const header = this.createSiteHeader();
+        const menu = this.createMenuDiv();
         wrapper.addChild(header);
+        wrapper.addChild(menu);
         wrapper.addChild(container);
-        app.addChild(wrapper);
+        app.replace(wrapper);
     }
 
     capitalizeFirstLetter(str){
