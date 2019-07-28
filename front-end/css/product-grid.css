@@ -17,12 +17,10 @@ html {
     font: 20px 1.618;
     font-family: 'Questrial', sans-serif;
     background-image: linear-gradient(var(--gradient-top), var(--gradient-bottom)), url("../images/background.jpg");
-
-    border: none;
 }
 
 body{
-    border: none;
+
 }
 
 ul{
@@ -47,7 +45,7 @@ a{
 }
 
 .wrapper{
-    border: none;
+
 }
 
 /* HEADER STUFF */
@@ -75,6 +73,7 @@ a{
 }
 
 .item-box{
+    background-color: white;
     border-style: solid;
     border-color: green;
     border-radius: 1rem;

@@ -30,11 +30,7 @@ class Html{
     return this;
   }
     
-   render() {
-    return this.element;
-   }
-
-  click(callback) {
+   click(callback) {
     this.element.addEventListener("click", callback);
 
     return this;

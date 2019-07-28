@@ -62,15 +62,72 @@ class Components {
         return container;
     }
 
+    createSiteTitleHeader() {
+        return Html().create('div')
+            .addClass('site-title')
+            .addChild(Html().create('h1')
+                .addClass('site-title__header')
+                .text('Slow Food'));
+    }
+
+    createSiteNavListItem(requestedData) {
+        return Html().create('li')
+            .addClass('site-nav__list-item')
+            .addChild(Html().create('button')
+                .addClass('site-nav__list-item-button')
+                .text(this.capitalizeFirstLetter(requestedData)));
+    }
+
+    createSiteNavList() {
+        const entities = ['departments', 'categories', 'products'];
+        const siteNavList = Html().create('ul')
+            .addClass('site-nav__list');
+        entities.forEach((entity) => {
+            let itemToAdd = this.createSiteNavListItem(entity);
+            siteNavList.addChild(itemToAdd);
+        });
+        return siteNavList;
+    }
+
+    createVisibleSiteNav() {
+        const siteNav = Html().create('nav')
+            .addClass('site-nav')
+            .addChild(
+                this.createSiteNavList()
+            );
+        return siteNav
+    }
+
+    createSiteHeader() {
+        const header = Html().create('header')
+            .addClass('site-header')
+            .addChild(
+                this.createSiteTitleHeader()
+            )
+            .addChild(
+                this.createVisibleSiteNav()
+            );
+        return header;
+    }
+
+
+
     renderWholePage() {
         const app = this.getAppContext();
         const wrapper = this.createWrapperDiv();
         const container = this.itemGridToContainer('products');
+        const header = this.createSiteHeader();
+        wrapper.addChild(header);
         wrapper.addChild(container);
         app.addChild(wrapper);
     }
 
     capitalizeFirstLetter(str){
-        return str.charAt(0).toUpperCase() + str.slice(1)
+        if(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        else{
+            return "";
+        }
     }
 }
