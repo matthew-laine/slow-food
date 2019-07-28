@@ -15,9 +15,10 @@ html {
     --header-color: green;
 
     /* STYLE */
+    background-image: linear-gradient(var(--gradient-top), var(--gradient-bottom)), url("../images/background.jpg");
+    color: green;
     font: 20px 1.618;
     font-family: 'Questrial', sans-serif;
-    background-image: linear-gradient(var(--gradient-top), var(--gradient-bottom)), url("../images/background.jpg");
 }
 
 body{
@@ -46,7 +47,7 @@ a{
 }
 
 .wrapper{
-
+    text-shadow: 5px 5px 10px grey;
 }
 
 /* HEADER STUFF */
@@ -67,26 +68,26 @@ a{
 }
 
 .site-nav{
-    display: flex;
-    align-items: center;
+
 }
 
 
 .site-nav__list {
-    display: flex;
-    align-items: center;
+
 }
 
 .site-nav__list-item {
-    padding: 0.5rem;
+
 }
 
 .site-nav__list-item-button {
     background-color: var(--background-color);
     border: 0;
     border-radius: 0.5rem;
+    box-shadow: 0 0 10px #000000c5;
     color: var(--header-color);
     padding: 0.5rem;
+    width: 1fr;
 }
 
 .site-nav__list-item-button:hover {
@@ -94,7 +95,7 @@ a{
 }
 
 
-/* GRID STUFF */
+/* ITEM GRID STUFF */
 
 .item-grid{
     display: grid;
