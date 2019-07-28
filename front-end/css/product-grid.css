@@ -59,26 +59,26 @@ a{
 
 .site-title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .site-title__header {
-    justify-self: center;
     padding: 1rem;
 }
 
 .site-nav{
+    display: flex;
+    align-items: center;
 }
 
 
 .site-nav__list {
     display: flex;
-    align-content: center;
+    align-items: center;
 }
 
 .site-nav__list-item {
-    padding: 0.7rem;
+    padding: 0.5rem;
 }
 
 .site-nav__list-item-button {
@@ -86,7 +86,7 @@ a{
     border: 0;
     border-radius: 0.5rem;
     color: var(--header-color);
-    padding: 0.7rem;
+    padding: 0.5rem;
 }
 
 .site-nav__list-item-button:hover {
