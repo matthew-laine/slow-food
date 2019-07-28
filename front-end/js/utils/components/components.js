@@ -191,7 +191,7 @@ class Components {
 
     showMenu(requestedData) {
         if(requestedData === 'products') {
-            this.renderProductsPage();
+            this.renderAllProductsPage();
         }
         else {
             const menu = this.getMenuDiv();
@@ -218,7 +218,7 @@ class Components {
         return container;
     }
 
-    renderWholePage() {
+    renderAllProductsPage() {
         const app = this.getAppContext();
         const wrapper = this.createWrapperDiv();
         const container = this.itemGridToContainer('products');
