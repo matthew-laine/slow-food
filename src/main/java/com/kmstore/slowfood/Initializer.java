@@ -12,19 +12,19 @@ import com.kmstore.slowfood.repositories.DepartmentRepository;
 import com.kmstore.slowfood.repositories.ProductRepository;
 
 @Component
-public class Initializer implements CommandLineRunner{
+public class Initializer implements CommandLineRunner {
 
 	@Autowired
 	DepartmentRepository deptRepo;
-	
+
 	@Autowired
 	CategoryRepository categoryRepo;
-	
+
 	@Autowired
 	ProductRepository productRepo;
-	
+
 	@Override
-	public void run(String... args) throws Exception{
+	public void run(String... args) throws Exception {
 		System.out.println("RUNNING INITIALIZER");
 		createDepartments();
 		createCategories();
@@ -51,14 +51,17 @@ public class Initializer implements CommandLineRunner{
 		Department packaged = new Department("packaged");
 		deptRepo.save(packaged);
 	}
+
 	private void createCategories() {
+//		produce
 		Category vegetables = new Category("vegetables", deptRepo.findByName("produce"));
 		categoryRepo.save(vegetables);
 		Category fruits = new Category("fruits", deptRepo.findByName("produce"));
 		categoryRepo.save(fruits);
 		Category leafyGreens = new Category("leafy-greens", deptRepo.findByName("produce"));
 		categoryRepo.save(leafyGreens);
-		
+
+//		meat
 		Category pork = new Category("pork", deptRepo.findByName("meat"));
 		categoryRepo.save(pork);
 		Category beef = new Category("beef", deptRepo.findByName("meat"));
@@ -67,8 +70,23 @@ public class Initializer implements CommandLineRunner{
 		categoryRepo.save(poultry);
 		Category dried = new Category("dried", deptRepo.findByName("meat"));
 		categoryRepo.save(dried);
+
+//		seafood
+		Category fish = new Category("fish", deptRepo.findByName("seafood"));
+		categoryRepo.save(fish);
+		Category roe = new Category("roe", deptRepo.findByName("seafood"));
+		categoryRepo.save(roe);
+		Category shellfish = new Category("shellfish", deptRepo.findByName("seafood"));
+		categoryRepo.save(shellfish);
+
+//      deli
+		Category deliBeef = new Category("deliBeef", deptRepo.findByName("deli"));
+		categoryRepo.save(deliBeef);
+
+//		Category deli = new Category("deli", deptRepo.findByName("seafood"));
+//		categoryRepo.save(deli);
 	}
-	
+
 	private void createProducts() {
 //		PRODUCE
 //		fruits
@@ -96,17 +114,17 @@ public class Initializer implements CommandLineRunner{
 		productRepo.save(garlic);
 		Product parsnips = new Product("parsnips", "$1.29/lb", "https://www.thespruceeats.com/thmb/6SRgfSeQF5NdzB0t1csjIEzWr9g=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/parsnips-g2k-56a8c1ff3df78cf772a05b87.jpg", categoryRepo.findByName("vegetables"));
 		productRepo.save(parsnips);
-		
+
 //		leafy-greens
 		Product cabbage = new Product("cabbage", "$0.39/lb", "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24172325/ING-green-cabbage-2-thumb1x1.jpg", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(cabbage);
-		Product spinach = new Product("spinach", "$0.79/lb", "https://img.purch.com/rc/300x200/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA3Ni85MTYvb3JpZ2luYWwvc3BpbmFjaC5qcGc=", categoryRepo.findByName("vegetables"));
+		Product spinach = new Product("spinach", "$0.79/lb", "https://img.purch.com/rc/300x200/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA3Ni85MTYvb3JpZ2luYWwvc3BpbmFjaC5qcGc=", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(spinach);
 		Product kale = new Product("kale", "$0.79/lb", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kale-Bundle.jpg/220px-Kale-Bundle.jpg", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(kale);
 		Product lettuce = new Product("lettuce", "$0.49/lb", "https://cdn.britannica.com/s:300x300/77/170677-004-75972A4C.jpg", categoryRepo.findByName("leafy-greens"));
 		productRepo.save(lettuce);
-		
+
 //		MEAT
 //		pork
 		Product blackForestHam = new Product("black forest ham", "$5.99/lb", "https://images-na.ssl-images-amazon.com/images/I/61F-oMTcApL._SX355_.jpg", categoryRepo.findByName("pork"));
