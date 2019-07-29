@@ -41,10 +41,10 @@ class Components {
             .addClass('product-article')
             .addChild(
                 Html().create('figure')
-                    .addClass('item-figure')
+                    .addClass('single-item-figure')
                     .addChild(
                         Html().create('img')
-                            .addClass('item-figure__img')
+                            .addClass('single-item-figure__img')
                             .addAttribute('src', imageUrl)
                     )
             )
