@@ -21,7 +21,10 @@ class Components {
 
     createMenuDiv() {
         return Html().create('div')
-            .addClass('menu');
+            .addClass('menu')
+            .stopHover(() =>{
+                this.hideMenu()
+            });
     }
 
     getWrapperDiv() {
@@ -189,16 +192,7 @@ class Components {
 
     createMenuList(requestedData) {
         const menuList = Html().create('ul')
-            .addClass('menu-list')
-            .addChild(
-                Html().create('button')
-                    .addClass('menu-list__hide-button')
-                    .text(this.capitalizeEachWord('hide'))
-                    .click(event => {
-                        event.preventDefault();
-                        this.hideMenu();
-                    })
-            );
+            .addClass('menu-list');
         Api().getRequest(`http://localhost:8080/api/${requestedData}`, (response) => {
             let directToRelatedProductsPage = false;
             if (response.categories) {

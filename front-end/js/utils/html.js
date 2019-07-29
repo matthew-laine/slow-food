@@ -95,6 +95,11 @@ class Html{
     }
     return this;
   }
+  stopHover(callback){
+    this.element.addEventListener("mouseleave", callback);
+
+    return this;
+  }
 
   text(textToAdd) {
     if (textToAdd === undefined) {
