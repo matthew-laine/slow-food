@@ -3,6 +3,7 @@ package com.kmstore.slowfood.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,16 +16,29 @@ public class Product {
 	private Long id;
 
 	private String name;
+
+	@Lob
 	private String imageUrl;
+	private String categoryName;
+	private String price;
 
 	@JsonIgnore
 	@ManyToOne
 	private Category category;
 
+	public Product(String name, String price, String imageUrl, Category category) {
+		this.name = name;
+		this.price = price;
+		this.imageUrl = imageUrl;
+		this.category = category;
+		this.categoryName = category.getName();
+	}
+
 	public Product(String name, String imageUrl, Category category) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.category = category;
+		this.categoryName = category.getName();
 	}
 
 	@SuppressWarnings("unused")
@@ -32,12 +46,21 @@ public class Product {
 
 	}
 
+
 	public Long getId() {
 		return id;
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
 	}
 
 	public String getImageUrl() {

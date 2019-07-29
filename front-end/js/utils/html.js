@@ -3,6 +3,12 @@ export default function () {
 }
 
 class Html{
+
+  addAttribute(attributeToSet, attributeValue) {
+    this.element.setAttribute(attributeToSet, attributeValue);
+
+    return this;
+  }
     
   addChild(childToAdd){
     this.element.append(childToAdd.render());
@@ -24,11 +30,7 @@ class Html{
     return this;
   }
     
-   render() {
-    return this.element;
-   }
-
-  click(callback) {
+   click(callback) {
     this.element.addEventListener("click", callback);
 
     return this;
@@ -61,6 +63,9 @@ class Html{
   
   replace(replacementChild) {
     this.element.innerHTML = "";
+    if(!replacementChild) {
+      return this;
+    }
     this.addChild(replacementChild);
 
     return this;
@@ -97,5 +102,13 @@ class Html{
     }
     this.element.textContent = textToAdd;
     return this;
+  }
+
+  toggleClass(classToToggle) {
+    if(this.element.classList.contains(classToToggle)) {
+      this.rmClass(classToToggle);
+    } else {
+      this.addClass(classToToggle);
+    }
   }
 }
