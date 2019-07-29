@@ -42,12 +42,13 @@ class Components {
         .addChild(
             Html().create('h1')
             .addClass('single-item-name')
-            .text(this.capitalizeFirstLetter(name))
+            // .text(this.capitalizeFirstLetter(name))
+            .text(this.capitalizeEachWord(name))
             )
             .addChild(
                 Html().create('h2')
                     .addClass('single-item-category')
-                    .text(this.capitalizeFirstLetter(categoryName))
+                    .text(this.capitalizeEachWord(categoryName))
             )
             .addChild(
                 Html().create('figure')
@@ -98,12 +99,12 @@ class Components {
             .addChild(
                 Html().create('h1')
                     .addClass('item-name-header')
-                    .text(this.capitalizeFirstLetter(name))
+                    .text(this.capitalizeEachWord(name))
             )
             .addChild(
                 Html().create('span')
                     .addClass('item-info-span')
-                    .text(this.capitalizeFirstLetter(info))
+                    .text(this.capitalizeEachWord(info))
             );
         return item;
     }
@@ -143,7 +144,7 @@ class Components {
             .addClass('site-nav__list-item')
             .addChild(Html().create('button')
                 .addClass('site-nav__list-item-button')
-                .text(this.capitalizeFirstLetter(requestedData))
+                .text(this.capitalizeEachWord(requestedData))
                 .click(event => {
                     event.preventDefault();
                     this.showMenu(requestedData);
@@ -192,7 +193,7 @@ class Components {
             .addChild(
                 Html().create('button')
                     .addClass('menu-list__hide-button')
-                    .text(this.capitalizeFirstLetter('hide'))
+                    .text(this.capitalizeEachWord('hide'))
                     .click(event => {
                         event.preventDefault();
                         this.hideMenu();
@@ -220,7 +221,7 @@ class Components {
                         .addChild(
                             Html().create('button')
                                 .addClass('menu-list__item-button')
-                                .text(this.capitalizeFirstLetter(item.name))
+                                .text(this.capitalizeEachWord(item.name))
                                 .click(event => {
                                     event.preventDefault()
                                         this.showMenu(itemEndPoint);
@@ -282,6 +283,12 @@ class Components {
         wrapper.addChild(container);
         wrapper.addChild(menu);
         app.replace(wrapper);
+    }
+
+    capitalizeEachWord(str){
+        return str.split(' ')
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(' ');
     }
 
     capitalizeFirstLetter(str){
