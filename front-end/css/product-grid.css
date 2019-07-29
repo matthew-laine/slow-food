@@ -218,22 +218,35 @@ padding-right: 1rem;
 
 /* SINGLE ITEM PAGE STUFF */
 
-.item-figure {
-
+.single-item-figure {
+    box-shadow: 0 0 10px #000000c5;
+    max-width: 48rem;
+    max-height: 58rem;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.item-figure__img {
-
-}
-
-.item-name {
-
-}
-
-.item-price {
-
-}
-
-.item-category {
+.single-item-figure__img {
+    width: 100%;
+    max-height: 58rem;
     
+}
+
+.single-item-name {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.single-item-price {
+    position: relative;
+    font-size: 9rem;
+    bottom: 10rem;
+    left: 10rem;
+}
+
+.single-item-category {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.4rem;
 }

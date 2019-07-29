@@ -35,13 +35,23 @@ class Components {
     getMenuDiv() {
         return Html().select('.menu');
     }
-
+    
     makeSingleProductPage(name, price, categoryName, imageUrl) {
         return Html().create('article')
-            .addClass('product-article')
+        .addClass('product-article')
+        .addChild(
+            Html().create('h1')
+            .addClass('single-item-name')
+            .text(this.capitalizeFirstLetter(name))
+            )
+            .addChild(
+                Html().create('h2')
+                    .addClass('single-item-category')
+                    .text(this.capitalizeFirstLetter(categoryName))
+            )
             .addChild(
                 Html().create('figure')
-                    .addClass('single-item-figure')
+                .addClass('single-item-figure')
                     .addChild(
                         Html().create('img')
                             .addClass('single-item-figure__img')
@@ -49,19 +59,9 @@ class Components {
                     )
             )
             .addChild(
-                Html().create('h1')
-                    .addClass('item-name')
-                    .text(this.capitalizeFirstLetter(name))
-            )
-            .addChild(
                 Html().create('h2')
-                    .addClass('item-price')
+                    .addClass('single-item-price')
                     .text(price)
-            )
-            .addChild(
-                Html().create('h2')
-                    .addClass('item-category')
-                    .text(this.capitalizeFirstLetter(categoryName))
             )
     }
 
