@@ -40,16 +40,6 @@ public class Initializer implements CommandLineRunner {
 		deptRepo.save(seafood);
 		Department deli = new Department("deli");
 		deptRepo.save(deli);
-		Department cheese = new Department("cheese");
-		deptRepo.save(cheese);
-		Department dairy = new Department("dairy");
-		deptRepo.save(dairy);
-		Department bakery = new Department("bakery");
-		deptRepo.save(bakery);
-		Department frozen = new Department("frozen");
-		deptRepo.save(frozen);
-		Department packaged = new Department("packaged");
-		deptRepo.save(packaged);
 	}
 
 	private void createCategories() {
@@ -80,11 +70,10 @@ public class Initializer implements CommandLineRunner {
 		categoryRepo.save(shellfish);
 
 //      deli
-		Category deliBeef = new Category("deliBeef", deptRepo.findByName("deli"));
+		Category deliBeef = new Category("deli beef", deptRepo.findByName("deli"));
 		categoryRepo.save(deliBeef);
-
-//		Category deli = new Category("deli", deptRepo.findByName("seafood"));
-//		categoryRepo.save(deli);
+		Category spreads = new Category("spreads", deptRepo.findByName("deli"));
+		categoryRepo.save(spreads);
 	}
 
 	private void createProducts() {
@@ -157,5 +146,12 @@ public class Initializer implements CommandLineRunner {
 		productRepo.save(wholeDuck);
 		Product goldenTurkey = new Product("golden turkey", "$3.99/lb", "http://www.miturkey.com/uploads/images/Content/RTC.png", categoryRepo.findByName("poultry"));
 		productRepo.save(goldenTurkey);
+//SEAFOOD
+//fish
+//roe
+//shellfish
+//DELI
+//delibeef
+//spreads		
 	}
 }
