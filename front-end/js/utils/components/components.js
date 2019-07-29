@@ -36,12 +36,47 @@ class Components {
         return Html().select('.menu');
     }
 
-    renderSingleProductPage(id) {
-        console.log('running renderSingleProductPage method for product with id ' + id);
+    makeSingleProductPage(name, price, categoryName, imageUrl) {
+        return Html().create('article')
+            .addClass('product-article')
+            .addChild(
+                Html().create('figure')
+                    .addClass('item-figure')
+                    .addChild(
+                        Html().create('img')
+                            .addClass('item-figure__img')
+                            .addAttribute('src', imageUrl)
+                    )
+            )
+            .addChild(
+                Html().create('h1')
+                    .addClass('item-name')
+                    .text(this.capitalizeFirstLetter(name))
+            )
+            .addChild(
+                Html().create('h2')
+                    .addClass('item-price')
+                    .text(price)
+            )
+            .addChild(
+                Html().create('h2')
+                    .addClass('item-category')
+                    .text(this.capitalizeFirstLetter(categoryName))
+            )
+    }
 
+    renderSingleProductPage(id) {
+        const wrapper = this.getWrapperDiv();
+        const container = this.createContainerDiv();
+        const header = this.getSiteHeader();
+        const menu = this.getMenuDiv();
         Api().getRequest(`http://localhost:8080/api/products/${id}`, (product) => {
-           console.log('hit end point'); 
+            container.addChild(this.makeSingleProductPage(product.name, product.price, product.categoryName, product.imageUrl))
         });
+        wrapper.replace(header);
+        wrapper.addChild(menu);
+        wrapper.addChild(container);
+        return container;
     }
 
     createSingleItem(name, info, imageUrl, id) {
